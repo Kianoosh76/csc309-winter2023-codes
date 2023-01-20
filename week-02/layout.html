@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+.container div {
+    height: 60px;
+    background-color: white;
+    margin: 2px;
+    text-align: center;
+    line-height: 60px;
+    flex: 1;
+}
+
+.container {
+	background-color: lightgreen;
+    padding: 2px;
+    display: flex;
+}
+
+.container.grid {
+	background-color: lightblue;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 20% auto 10%;
+    grid-template-rows: 100px auto 50px;
+    grid-gap: 2px;
+}
+
+.container.grid div {
+    height: 100%;
+    margin: 0;
+}
+
+</style>
+<body>
+
+<div class="container">
+  <div>1</div>
+  <div style="flex: 2">2</div>
+  <div>3</div>
+  <div style="flex: 0.5">4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+</div>
+<br>
+<div class="container grid">
+  <div style="grid-column: 1 / 4">Header</div>
+  <div style="grid-row: 2 / 4">Menu</div>
+  <div>Main</div>
+  <div>Right</div>
+  <div style="grid-column: 2 / span 2">Footer</div>
+  
+</div>
+
+</body>
+</html>
+
