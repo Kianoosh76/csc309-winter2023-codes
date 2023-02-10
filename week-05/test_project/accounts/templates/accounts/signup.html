@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<style>
+
+    
+    label {
+		text-align: right;
+        padding-top: 4px;
+	}
+    
+    input {
+		border: 1px solid black;
+        height: 20px;
+        width: 200px;
+        font-size: 16px;
+	}
+
+</style>
+
+<form method="POST" action="">
+	<div class="title" > Signup </div>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button > submit </button>
+</form>
+
+</body>
+</html>
+
+
+
+
