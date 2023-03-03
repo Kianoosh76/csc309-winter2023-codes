@@ -1,0 +1,95 @@
+> function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+}
+
+< undefined
+> document.getElementById("password1").onkeyup = passwordcheck
+< TypeError: null is not an object (evaluating 'document.getElementById("password1").onkeyup = passwordcheck')
+> document.getElementById("password").onkeyup = passwordcheck
+< function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+}
+> document.getElementById("password2").onkeyup = passwordcheck
+< function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+}
+> function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+    else
+        document.getElementById("error").innerHTML = ''
+}
+
+< undefined
+> document.getElementById("password2").onkeyup = passwordcheck
+< function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+    else
+        document.getElementById("error").innerHTML = ''
+}
+> document.getElementById("password").onkeyup = passwordcheck
+< function passwordcheck(){
+    let password1 = document.getElementById("password").value
+    let password2 = document.getElementById("password2").value
+
+    if (password1 !== password2)
+        document.getElementById("error").innerHTML = 'Passwords do not match'
+    else
+        document.getElementById("error").innerHTML = ''
+}
+
+> function passwordcheck(){
+    let password1 = $("#password").val()
+    let password2 = $("#password2").val()
+
+    if (password1 !== password2)
+        $("#error").html('Passwords do not match')
+    else
+        $("error").html('')
+}
+
+< undefined
+> function passwordcheck(){
+    let password1 = $("#password").val()
+    let password2 = $("#password2").val()
+
+    if (password1 !== password2)
+        $("#error").html('Passwords do not match')
+    else
+        $("#error").html('')
+}
+
+< undefined
+> $("#password2").keyup(passwordcheck)
+< E [<input id="password2">] (1)
+> $("#password1").keyup(passwordcheck)
+< E [] (0)
+> $("#password").keyup(passwordcheck)
+< E [<input id="password">] (1)
+> $("#password").val()
+< "1212"
+> $("#password").val("hjkkhjhjkhjkhjkjhk")
+< E [<input id="password">] (1)
+> $("#password").val("")
+< E [<input id="password">] (1)
+> $("#password").val()
+< ""
