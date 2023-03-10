@@ -1,0 +1,221 @@
+const sqr = x => x * x
+undefined
+sqr(12)
+144
+let arr = ["a", "cjd", "wedd", "wee"]
+undefined
+arr.forEach(item => console.log(item.length))
+VM6823:1 1
+VM6823:1 3
+VM6823:1 4
+VM6823:1 3
+undefined
+arr.map(item => item.toUpperCase())
+(4) ['A', 'CJD', 'WEDD', 'WEE']
+arr.map(item => item.toUpperCase()).filter((item, index) => index % 2 == 0)
+(2) ['A', 'WEDD']
+var arr2 = [1, 2, 3, -9, 23, -29]
+undefined
+arr2.reduce((acc, item) => acc + item, 0)
+-9
+function f(){
+    return this.name
+}
+undefined
+let obj1 = {name: '123', print: f}
+undefined
+obj1.print()
+'123'
+let obj2 = {name: '12345'}
+undefined
+obj2.print = f 
+ƒ f(){
+    return this.name
+}
+obj2.print()
+'12345'
+let obj3 = {print: f}
+undefined
+obj3.print()
+undefined
+f()
+''
+undefined.name
+VM7889:1 Uncaught TypeError: Cannot read properties of undefined (reading 'name')
+    at <anonymous>:1:11
+(anonymous) @ VM7889:1
+function f2(){
+    return this 
+}
+undefined
+f2()
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+let t = obj3.print
+undefined
+t()
+''
+let obj4 = {
+    name: '123456',
+    print: function(){
+        console.log(this, this.name)
+        setTimeout(function(){
+            console.log(this, this.name)
+        }, 5000)
+    }
+}
+undefined
+obj4()
+VM8803:1 Uncaught TypeError: obj4 is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM8803:1
+obj4.print()
+VM8776:4 {name: '123456', print: ƒ} '123456'
+undefined
+VM8776:6 Window {window: Window, self: Window, document: document, name: '', location: Location, …} ''
+let obj5 = {
+    name: '123456',
+    print: function(){
+        console.log(this, this.name)
+        setTimeout(() => {
+            console.log(this, this.name)
+        }, 5000)
+    }
+}
+undefined
+obj5()
+VM9033:1 Uncaught TypeError: obj5 is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM9033:1
+obj5.print()
+VM9015:4 {name: '123456', print: ƒ} '123456'
+undefined
+VM9015:6 {name: '123456', print: ƒ} '123456'
+let obj5 = {
+    name: '123456',
+    print: () => {
+        console.log(this, this.name)
+        setTimeout(() => {
+            console.log(this, this.name)
+        }, 5000)
+    }
+}
+undefined
+obj5.print()
+VM9229:4 Window {window: Window, self: Window, document: document, name: '', location: Location, …} ''
+undefined
+VM9229:6 Window {window: Window, self: Window, document: document, name: '', location: Location, …} ''
+this 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+let obj5 = {
+    name: '123456',
+    print: (') => {
+        console.log(this, this.name)
+        setTimeout(function(){
+            console.log(this, this.name)
+        }, 5000)
+    }
+}
+VM9342:3 Uncaught SyntaxError: Invalid or unexpected token
+let obj5 = {
+    name: '123456',
+    print: () => {
+        console.log(this, this.name)
+        setTimeout(function(){
+            console.log(this, this.name)
+        }, 5000)
+    }
+}
+undefined
+obj5.print()
+VM9353:4 Window {window: Window, self: Window, document: document, name: '', location: Location, …} ''
+undefined
+VM9353:6 Window {window: Window, self: Window, document: document, name: '', location: Location, …} ''
+function f2(){
+    return this 
+}
+
+const f3 = () => {
+    return this 
+}
+undefined
+f2()
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+f3()
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+event_queue = []
+
+
+while TRUE:
+VM9623:4 Uncaught SyntaxError: Unexpected identifier 'TRUE'
+// pseudo code
+event_queue = []
+
+
+while TRUE:
+    if event_queue.empty() == FALSE:
+        callback = event_queue.pop()
+        callback()
+    
+
+VM9905:5 Uncaught SyntaxError: Unexpected identifier 'TRUE'
+// pseudo code
+event_queue = []
+
+
+while TRUE:
+    if event_queue.empty() == FALSE:
+        callback = event_queue.pop()
+        callback()
+    sleep(0.01)
+
+VM9956:5 Uncaught SyntaxError: Unexpected identifier 'TRUE'
+// pseudo code
+event_queue = []
+
+
+while TRUE:
+    if event_queue.empty() == FALSE:
+        callback = event_queue.pop()
+        callback()
+    else:
+        sleep(0.01)
+
+VM9997:5 Uncaught SyntaxError: Unexpected identifier 'TRUE'
+let p = new Promise(function(resolve, reject){
+})
+undefined
+p 
+Promise {<pending>}
+let p = new Promise(function(resolve, reject){
+    resolve("heyyy")
+})
+undefined
+p 
+Promise {<fulfilled>: 'heyyy'}
+let p2 = new Promise(function(resolve, reject){
+    setTimeout(() => resolve("heyyy2"), 5000)
+})
+undefined
+p2 
+Promise {<pending>}
+p2 
+Promise {<pending>}
+p2 
+Promise {<pending>}
+p2 
+Promise {<pending>}
+p2 
+Promise {<fulfilled>: 'heyyy2'}
+p2.then(x => x.toUpperCase())
+Promise {<fulfilled>: 'HEYYY2'}
+let req = fetch('http://localhost:8000/stores/store/all')
+undefined
+req 
+Promise {<fulfilled>: Response}
+let req2 = req.then(res => res.json())
+undefined
+req2 
+Promise {<fulfilled>: Array(1)}
+req2.then(arr => console.log(arr))
+VM11002:1 [{…}]0: description: "apple store"email: nullid: 1name: "Apple"owner: "admin"url: "http://www.apple.com"[[Prototype]]: Objectlength: 1[[Prototype]]: Array(0)
+Promise {<fulfilled>: undefined}
