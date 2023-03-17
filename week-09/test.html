@@ -1,0 +1,106 @@
+<html>
+    <body>
+    
+    <div id="root">
+        
+    </div>    
+
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Text extends React.Component {
+            render(){
+                return <span style={{color: 'red', 'fontFamily': 'Arial', fontSize: 20}}>{ this.props.title }</span>
+            }
+        }
+
+        class Counter extends React.Component {
+            constructor(props){
+                super(props)
+                this.state = {
+                    count: 0
+                }
+            }
+
+            /**
+             * Idea of re-rendering
+             * 
+             * setState(newState){
+             *  if (this.state !== newState){
+             *     this.state = newState
+             *     re_render()
+             *  }
+             * }
+             */
+
+            increment = () => {
+                this.setState({
+                    count: this.state.count + 1
+                })
+            }
+
+            render(){
+                return <>
+                    <Text title={this.state.count} />
+                    <button onClick={this.increment}> Click me! </button>
+                </>
+            }
+
+        }
+
+        class Input extends React.Component {
+            render(){
+                const { title, value, update } = this.props
+                return (
+                    <>
+                        <input type="text" 
+                               value={value} 
+                               onChange={event => update(event.target.value)}
+                        />
+                        <Text title={title} />
+                    </>
+                )
+            }
+        }
+
+        class Converter extends React.Component {
+            constructor(props){
+                super(props)
+                this.state = {
+                    celsius: 0,
+                }
+            }
+
+            update = isCelsius => newValue => {
+                this.setState({
+                    celsius: isCelsius ? newValue : (newValue - 32) * 5 / 9
+                })
+            }
+
+            render(){
+                return (
+                    <>
+                        <Input title="Celsius" 
+                               value={this.state.celsius} 
+                               update={this.update(true)} 
+                        />
+                        <br />
+                        <Text title="=" />
+                        <br />
+                        <Input title="Fahrenheit" 
+                               value={this.state.celsius * 9 / 5 + 32} 
+                               update={this.update(false)}
+                        />
+                    </>
+                )
+            }
+        }
+
+        const element = <Text title="hello!!! how are you" />
+        ReactDOM.render(<Converter />, document.getElementById("root"))
+    </script>
+            
+</body>
+</html>
