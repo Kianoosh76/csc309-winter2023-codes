@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 const Players = () => {
     const perPage = 25;
-    let timeout;
     var [players, setPlayers] = useState([])
     var [query, setQuery] = useState({
         search: '', page: 1
@@ -10,15 +9,12 @@ const Players = () => {
     var [hasEnded, setHasEnded] = useState(true);
 
     useEffect(() => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => 
-            fetch(`https://www.balldontlie.io/api/v1/players?search=${query.search}&page=${query.page}&per_page=${perPage}`)
-                .then(response => response.json())
-                .then(json => {
-                    setPlayers(json.data);
-                    setHasEnded(json.meta.next_page === null)
-                })
-        , 500)
+        fetch(`https://www.balldontlie.io/api/v1/players?search=${query.search}&page=${query.page}&per_page=${perPage}`)
+            .then(response => response.json())
+            .then(json => {
+                setPlayers(json.data);
+                setHasEnded(json.meta.next_page === null)
+            })
     }, [query])
 
     return (
