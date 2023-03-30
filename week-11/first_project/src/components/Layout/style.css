@@ -1,0 +1,8 @@
+nav {
+    background-color: lightskyblue;
+}
+
+nav a {
+    font-size: 1.4rem;
+    margin: 0.2em 0.5em;
+}
